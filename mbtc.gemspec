@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['marcos@trovilho.com']
   spec.description   = %q{CLI para Mercado Bitcoin}
   spec.summary       = %q{CLI para Mercado Bitcoin}
-  spec.homepage      = 'https://github.com/mtrovilho/mbtc.git'
+  spec.homepage      = 'https://github.com/mtrovilho/mbtc'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
