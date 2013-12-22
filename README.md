@@ -4,33 +4,33 @@ mbtc
 CLI para [Mercado Bitcoin](http://www.mercadobitcoin.com.br/)
 
 
-Installation
-------------
+Instalação
+----------
 
-Add this line to your application's Gemfile:
+Adicione essa linha no Gemfile:
 
     gem 'mbtc'
 
-And then execute:
+Execute:
 
     $ bundle
 
-Or install it yourself as:
+Ou instale você mesmo:
 
     $ gem install mbtc
 
 
-Usage
------
+Uso
+---
 
-TODO: Write usage instructions here
+Ticker:
 
+		ticker = MBTC::Mercado.ticker( < :btc ou :ltc >  ) # o padrão é :btc
 
-Contributing
-------------
+Orderbook:
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+		orderbook = MBTC::Mercado.orderbook( < :btc ou :ltc >  ) # o padrão é :btc
+
+Trades:
+
+		trades = MBTC::Mercado.trades( < :btc ou :ltc >  ) # o padrão é :btc

@@ -18,8 +18,8 @@ module MBTC
   ##
   # Orderbook
   #
-  # asks: lista das ofertas de venda disponíveis.
-  # bids: lista das ofertas de compra disponíveis.
+  # asks [Array<Order>] lista das ofertas de venda disponíveis.
+  # bids [Array<Order>] lista das ofertas de compra disponíveis.
   #
   class Orderbook
     attr_reader :asks
