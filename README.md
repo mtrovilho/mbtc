@@ -23,14 +23,31 @@ Ou instale você mesmo:
 Uso
 ---
 
-Ticker:
+    mercado = MBTC.Mercado.new( < :btc ou :ltc > ) # o padrão é :btc
+    
+    # Ticker:
+    ticker = mercado.ticker
+    
+    # Orderbook:
+    orderbook = mercado.orderbook
+    
+    # Trades:
+    trades = mercado.trades
 
-		ticker = MBTC::Mercado.ticker( < :btc ou :ltc >  ) # o padrão é :btc
 
-Orderbook:
+CLI
+---
 
-		orderbook = MBTC::Mercado.orderbook( < :btc ou :ltc >  ) # o padrão é :btc
+    $ mbtc [opções] [comando]
 
-Trades:
+    Opções:
+      -h, --help                       Mostra ajuda
+          --version                    Mostra versão
+          --log-level LEVEL            Define o log level
+                                       (debug|info|warn|error|fatal)
+                                       (Padrão: info)
+      -t, --type TYPE                  Tipo do request (btc ou ltc)
+                                       (Padrão: btc)
 
-		trades = MBTC::Mercado.trades( < :btc ou :ltc >  ) # o padrão é :btc
+    Comandos:
+      ticker
