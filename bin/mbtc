@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+require 'methadone'
+require 'mbtc'
+
+include Methadone::Main
+include Methadone::CLILogging
+
+def print_ticker( ticker, type )
+  logger.info( "===== Ticker #{type.upcase} =====" )
+  logger.info( "Última:\t#{ticker.last}" )
+  logger.info( "Compra:\t#{ticker.buy}" )
+  logger.info( "Venda:\t#{ticker.sell}" )
+  logger.info( "Maior:\t#{ticker.high}" )
+  logger.info( "Menor:\t#{ticker.low}" )
+  logger.info( "Volume:\t#{ticker.vol}" )
+  logger.info( "Data:\t#{Time.at( ticker.date ).utc}" )
+end
+
+def print_orderbook( orderbook, type )
+  logger.info( "===== Order Book #{type.upcase} =====" )
+  # TODO: implement
+end
+
+def print_trades( trades, type )
+  logger.info( "===== Trades #{type.upcase} =====" )
+  # TODO: implement
+end
+
+main do |command| 
+  logger.debug( "command: #{command.inspect}" )
+  logger.debug( "options: #{options.inspect}" )
+
+  request_type = options[:type]
+  logger.debug( "initilizing MBTC::Mercado with type: #{request_type}" )
+  m = MBTC::Mercado.new( request_type.to_sym )
+
+  if command.nil?
+    logger.debug( 'nil command, setting to ticker' )
+    command = 'ticker'
+  end
+
+  case command
+  when 'ticker', 't'
+    logger.debug( 'executing ticker' )
+    print_ticker( m.ticker, request_type )
+  when 'orderbook', 'ob', 'o'
+    logger.error( 'not implemented' )
+    # logger.debug( 'executing orderbook' )
+    # print_orderbook( m.orderbook, request_type )
+  when 'trades'
+    logger.error( 'not implemented' )
+    # logger.debug( 'executing trades' )
+    # print_trades( m.trades, request_type )
+  else
+    help_now!( 'invalid command' )
+  end
+end
+
+version MBTC::VERSION
+description 'Mercado Bitcoin CLI' 
+use_log_level_option
+options['type'] = 'btc'
+on( '-t TYPE', '--type', 'Request type (btc ou ltc)' )
+go!
