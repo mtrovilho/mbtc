@@ -1,6 +1,9 @@
 mbtc
 ====
 
+[![Gem Version](https://badge.fury.io/rb/mbtc.svg)](http://badge.fury.io/rb/mbtc)
+[![Code Climate](https://codeclimate.com/github/mtrovilho/mbtc.png)](https://codeclimate.com/github/mtrovilho/mbtc)
+
 CLI para [Mercado Bitcoin](http://www.mercadobitcoin.com.br/)
 
 
